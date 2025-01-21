@@ -42,67 +42,86 @@
 
     <!-- Populaarsed Tooted Section -->
     <section class="populaarsed-tooted">
+    <h2>Populaarsed tooted</h2>
         <div class="container">
-            <h2>Populaarsed tooted</h2>
-            <div class="tooted-item">
-                <img src="{{ asset('/img/killa-blueberry-10g-643e76150180b.webp') }}" alt="Toode 1">
-                <p>Killa Blueberry 10mg - €4.99</p>
+            
+        <div class="tooted-item">
+        <img src="{{ asset('/img/killa-blueberry-10g-643e76150180b.webp') }}" alt="Toode 1">
+        <div class="product-info">
+            <div class="strength-circles">
+                <span class="circle filled"></span>
+                <span class="circle filled"></span>
+                <span class="circle"></span>
+                <span class="circle"></span>
+                <span class="circle"></span>
             </div>
+            <p>Killa Blueberry 10g  €4.99</p>
+        </div>
+    </div>
             <div class="tooted-item">
                 <img src="{{ asset('/img/pablo-ice-cold-10g-643e7c7cb9b6c.webp') }}" alt="Toode 2">
-                <p>Pablo Ice Cold 10g - €5.49</p>
+                <div class=product-info>
+                <div class="strength-circles">
+                    <span class="circle filled"></span>
+                    <span class="circle filled"></span>
+                    <span class="circle filled"></span>
+                    <span class="circle filled"></span>
+                    <span class="circle filled"></span>
+                </div>
+                <p>Pablo Ice Cold 10g €5.49  </p>
+                
+                </div>
             </div>
-           
-            
+
         </div>
         <a href="/tooted" class="btn black-btn">Kõik tooted</a>
     </section>
 
-    <section class="products-info">
-    <div class="container">
-        <h2>Meie tooted</h2>
-        
-        <div class="product-info-item">
-            <h3>Tubakavabad Nikotiinipadjad</h3>
-            <p>
-                Tubakavabad nikotiinipadjad on valge värvusega, nikotiini sisaldavad tooted, mis asetatakse huule alla.
-                Nende kasutamine ei kahjusta hambaid ning sellega ei kaasne ebameeldivat tubakalõhna. Tooted sisaldavad 
-                looduslikke õlisid, mis teevad kasutamise meeldivaks.
-            </p>
-            <ul>
-                <li>Ei sisalda tubakat</li>
-                <li>Valmistatud 100% looduslikest koostisosadest</li>
-                <li>Valgest paberriidest puhtaim võimalus nikotiini tarbimiseks</li>
-            </ul>
-        </div>
+<!-- About Product Section -->
+<section class="about-product">
+    <div class="product-container">
+    <div class="nikotiinipadjad">
+    
+    <div class="nikotiinipadjad-content">
+    <h2>Nikotiinipadjad</h2>
+    
+    <div class="big-picture-placeholder">
+        <img src="{{ asset('/img/pablo-mini.webp') }}" alt="Pablo Snus">
+    </div>
+</div>
+<p>Tubakavabad nikotiinipadjad on valge värvusega, nikotiini sisaldavad tooted, mis asetatakse huule alla. Nende kasutamine ei kahjusta hambaid ning sellega ei kaasne ebameeldivat tubakalõhna. Tooted sisaldavad looduslikke õlisid, mis teevad kasutamise meeldivaks.</p>
 
-        <div class="product-info-item">
-            <h3>Nikotiinipadjad</h3>
-            <p>
-                Ühekordsed nikotiinipadjad, mis pakuvad mugavat ja lihtsat nikotiini tarbimist. Ei vaja erilist ettevalmistust
-                ning on ideaalne valik igapäevaseks kasutamiseks.
-            </p>
+    <div class="picture-placeholders">
+        <div class="placeholder-item">
+            <img src="{{ asset('/img/leaf.svg') }}" alt="Leaf">
+            <p>Ei sisalda tubakat</p>
         </div>
-
-        <div class="product-info-item">
-            <h3>E-Sigaretid Killalt</h3>
-            <p>
-                Killa Switch on mugav ja kompaktne ühekordseks kasutamiseks mõeldud e-sigaret. Seda on lihtne kasutada 
-                ning ei vaja täitmist ega laadimist. Killa Switch seadmed on valmistatud kõrge kvaliteediga komponentidest 
-                ning sisaldavad parimate omadustega nikotiinivedelikku.
-            </p>
+        <div class="placeholder-item">
+            <img src="{{ asset('/img/plant.svg') }}" alt="Plant">
+            <p>Valmistatud 100% looduslikest koostisosadest</p>
         </div>
-
-        <div class="product-info-item">
-            <h3>Erinevad E-Vedelikud E-Sigaretidele</h3>
-            <p>
-                E-vedelikud sobivad e-sigareti täitmiseks. Vedelikud sisaldavad nikotiini ja on erinevate tubaka ning mündi
-                maitsetega. Müügil on kolme erineva nikotiini sisaldusega vedelikud, mis on heaks alternatiiviks tavasigarettidele.
-                Vedelikud on kõrge kvaliteediga ja täielikult tubakavabad.
-            </p>
+        <div class="placeholder-item">
+            <img src="{{ asset('/img/heart.svg') }}" alt="Heart">
+            <p>Valgest paberriidest puhtaim võimalus nikotiini tarbimiseks</p>
         </div>
     </div>
+</div>
+
+    </div>
+
+    <div class="product-info-container">
+        <div class="e-sigaretid">
+            <h3>E-Sigaretid Killalt</h3>
+            <p>Killa Switch on mugav ja kompaktne ühekordseks kasutamiseks mõeldud e-sigaret. Seda on lihtne kasutada ning ei vaja täitmist ega laadimist. Killa Switch seadmed on valmistatud kõrge kvaliteediga komponentidest ning sisaldab parimate omadustega nikotiinivedelikku.</p>
+        </div>
+        <div class="e-vedelikud">
+            <h3>ERINEVAD E-VEDELIKUD</h3>
+            <p>E-vedelikud sobivad e-sigareti täitmiseks. Vedelikud sisaldavad nikotiini ja on erinevate tubaka ning mündi maitsetega. Müügil on kolme erineva nikotiini sisaldusega vedelikud mistõttu on need heaks alternatiiviks tavasigarettidele. Vedelikud on kõrge kvaliteediga ja täielikult tubakavabad.</p>
+        </div>
+    </div>
+
     </section>
+
     <!-- Product Categories Section -->
     <<section class="product-categories">
     <div class="category-container">
@@ -130,9 +149,7 @@
     </div>
 </section>
 
-        
-        
-    </section>
+
 
     <!-- Footer -->
     <footer>
@@ -144,7 +161,7 @@
         </div>
         <!-- Column 2 -->
         <div class="footer-column">
-            <h4>Kiirlingid</h4>
+            <h4>KIIRLINGID</h4>
             <ul style="list-style-type: none; padding: 0;">
                 <li><a href="#" style="color: white; text-decoration: none;">Tooted</a></li>
                 <li><a href="#" style="color: white; text-decoration: none;">Müügikohad</a></li>
@@ -154,7 +171,7 @@
         </div>
         <!-- Column 3 -->
         <div class="footer-column">
-            <h4>Juriidiline info</h4>
+            <h4>JURIIDILINE INFO</h4>
             <ul style="list-style-type: none; padding: 0;">
                 <li><a href="#" style="color: white; text-decoration: none;">Andmekaitsetingimused</a></li>
                 <li><a href="#" style="color: white; text-decoration: none;">Nõusoleku eelistused</a></li>
@@ -164,7 +181,7 @@
         </div>
         <!-- Column 4 -->
         <div class="footer-column">
-            <h4>Kontakt</h4>
+            <h4>KONTAKT</h4>
             <p>Tel: +372 51978233</p>
             <p>E-post: <a href="mailto:info@snusempire.ee" style="color: white; text-decoration: none;">info@snusempire.ee</a></p>
         </div>
