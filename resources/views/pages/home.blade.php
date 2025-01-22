@@ -25,20 +25,17 @@
                     <li><a href="/kliendikaart">Kliendikaart</a></li>
                 </ul>
             </nav>
+            <div class="search-bar">
+                <img class="search-icon" src="{{ asset('img/searchbar.png') }}" alt="Search">
+                    <input type="text" placeholder="Otsi tooteid" class="search-input hidden">
+            </div>
             <div class="shopping-bag">
                 <img src="{{ asset('img/shopping-bag.svg') }}" alt="Shopping Bag">
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Tere tulemast Snus Empire'i</h1>
-            <p>Teie usaldusväärne koht premium snusi toodete jaoks.</p>
-            <a href="/tooted" class="btn">Osta nüüd</a>
-        </div>
-    </section>
+    
 
     <!-- Populaarsed Tooted Section -->
     <section class="populaarsed-tooted">
@@ -79,18 +76,15 @@
 
 <!-- About Product Section -->
 <section class="about-product">
-    <div class="product-container">
+    <img class="curve" src="{{ asset('/img/curve.svg') }}" alt="Curve">
+<div class="products">
     <div class="nikotiinipadjad">
-    
+        <div class="niko-text-images">
     <div class="nikotiinipadjad-content">
+    <h1>TUBAKAVABAD</h1>
     <h2>Nikotiinipadjad</h2>
-    
-    <div class="big-picture-placeholder">
-        <img src="{{ asset('/img/pablo-mini.webp') }}" alt="Pablo Snus">
+        <p>Tubakavabad nikotiinipadjad on valge värvusega, nikotiini sisaldavad tooted, mis asetatakse huule alla. Nende kasutamine ei kahjusta hambaid ning sellega ei kaasne ebameeldivat tubakalõhna. Tooted sisaldavad looduslikke õlisid, mis teevad kasutamise meeldivaks.</p>
     </div>
-</div>
-<p>Tubakavabad nikotiinipadjad on valge värvusega, nikotiini sisaldavad tooted, mis asetatakse huule alla. Nende kasutamine ei kahjusta hambaid ning sellega ei kaasne ebameeldivat tubakalõhna. Tooted sisaldavad looduslikke õlisid, mis teevad kasutamise meeldivaks.</p>
-
     <div class="picture-placeholders">
         <div class="placeholder-item">
             <img src="{{ asset('/img/leaf.svg') }}" alt="Leaf">
@@ -105,7 +99,11 @@
             <p>Valgest paberriidest puhtaim võimalus nikotiini tarbimiseks</p>
         </div>
     </div>
-</div>
+    </div>
+        <div class="big-picture-placeholder">
+            <img src="{{ asset('/img/pablo-mini.webp') }}" alt="Pablo Snus">
+        </div>
+    </div>
 
     </div>
 
@@ -113,17 +111,19 @@
         <div class="e-sigaretid">
             <h3>E-Sigaretid Killalt</h3>
             <p>Killa Switch on mugav ja kompaktne ühekordseks kasutamiseks mõeldud e-sigaret. Seda on lihtne kasutada ning ei vaja täitmist ega laadimist. Killa Switch seadmed on valmistatud kõrge kvaliteediga komponentidest ning sisaldab parimate omadustega nikotiinivedelikku.</p>
+            <img src="{{ asset('/img/killa-switch.png') }}" alt="Killa Switch">
         </div>
         <div class="e-vedelikud">
+            <img src="{{ asset('/img/e-vedelik.webp') }}" alt="E-vedelik">
             <h3>ERINEVAD E-VEDELIKUD</h3>
             <p>E-vedelikud sobivad e-sigareti täitmiseks. Vedelikud sisaldavad nikotiini ja on erinevate tubaka ning mündi maitsetega. Müügil on kolme erineva nikotiini sisaldusega vedelikud mistõttu on need heaks alternatiiviks tavasigarettidele. Vedelikud on kõrge kvaliteediga ja täielikult tubakavabad.</p>
         </div>
     </div>
-
+</div>
     </section>
 
     <!-- Product Categories Section -->
-    <<section class="product-categories">
+    <section class="product-categories">
     <div class="category-container">
         <div class="category-option">
             <a href="/nikotiinipadjad"><h3>Nikotiinipadjad</h3></a>
@@ -198,6 +198,36 @@
         <p>© S.W.P DISTRIBUTION OÜ 2025. KÕIK ÕIGUSED RESERVEERITUD. VEEBIPLATFORM: PROCOMMERCE</p>
     </div>
 </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const searchIcon = document.querySelector('.search-icon');
+    const searchInput = document.querySelector('.search-input');
 
+    // Function to toggle the search bar visibility
+    function toggleSearchBar() {
+        searchInput.classList.toggle('visible');
+        searchInput.classList.toggle('hidden');
+        if (searchInput.classList.contains('visible')) {
+            searchInput.focus();
+        }
+    }
+
+    // Event listener for the search icon click
+    searchIcon.addEventListener('click', function (event) {
+        event.stopPropagation(); // Prevent the click from propagating to the document
+        toggleSearchBar();
+    });
+
+    // Event listener for clicks outside the search bar
+    document.addEventListener('click', function (event) {
+        // Check if the search bar is visible and the click is outside the search area
+        if (searchInput.classList.contains('visible') && !searchInput.contains(event.target) && !searchIcon.contains(event.target)) {
+            searchInput.classList.remove('visible');
+            searchInput.classList.add('hidden');
+        }
+    });
+});
+
+</script>
 </body>
 </html>
