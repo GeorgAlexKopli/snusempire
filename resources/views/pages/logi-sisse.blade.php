@@ -20,6 +20,7 @@
 
             <a href="/forgot-password" class="forgot-password">Unustasid parooli?</a>
         </form>
+        <btn class="Back-btn"><a href="/home">Tagasi</a></btn>
     </div>
 </body>
 </html>

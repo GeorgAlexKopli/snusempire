@@ -13,12 +13,14 @@
                     <li><a href="/logi-sisse">Kliendikaart</a></li>
                 </ul>
             </nav>
+            <div class="navbar-right">
             <div class="search-bar">
                 <img class="search-icon" src="{{ asset('img/searchbar.png') }}" alt="Search">
-                    <input type="text" placeholder="Otsi tooteid" class="search-input hidden">
+                    <input type="text" placeholder="Otsi tooteid" class="search-input hidden">  
             </div>
+            <img class ="shopping-bag-icon" src="{{ asset('img/shopping-bag.svg') }}" alt="Shopping Bag">
             <div class="shopping-bag">
-                <img src="{{ asset('img/shopping-bag.svg') }}" alt="Shopping Bag">
+                
             </div>
         </div>
     </header>
@@ -54,15 +56,14 @@
 
     </script>
     <style>
-        .sticky-header {
+    .sticky-header {
     position: sticky;
     top: 0;
     background-color: white;
     z-index: 1000;
-    height: 90px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 10px 0;
-}
+    padding: 13px 0;
+    }
 
 .sticky-header .container {
     width: 100%;
@@ -98,14 +99,23 @@ nav ul li a:hover {
     color: #0f4b6e;
 }
 
-/* Style for the search icon */
-.search-icon {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
+.navbar-right {
+    display: flex;
+    justify-content: left;
 }
 
+
+.search-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    padding-right: 10px;
+}
+
+.search-bar {
+    justify-content: center;
+    position: relative;
+}
 .search-input {
     position: absolute;
     left: 0;
@@ -134,4 +144,10 @@ nav ul li a:hover {
     display: none;
 }
 
+.shopping-bag-icon {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    padding-right: 380px;
+}
     </style>
