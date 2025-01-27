@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snus Empire - Kodu</title>
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
 
@@ -47,6 +49,11 @@
         </div>
         <a href="/tooted" class="btn black-btn">Kõik tooted</a>
     </section>
+
+
+<x-map />
+
+
 
 <!-- About Product Section -->
 <section class="about-product">

@@ -49,7 +49,7 @@
 
 <style>
 footer {
-    background-color: black;
+    background-color:rgb(39, 39, 39);
     color: white;
     padding: 50px 0;
     border-radius: 0.8rem;
@@ -58,6 +58,7 @@ footer {
     margin-top: 83px;
     margin-bottom: 20px;
     max-width: 1800px;
+    max-height: 250px;
 }
 
 footer p {
