@@ -15,7 +15,10 @@
             
             <div class="button-group">
                 <button type="submit" class="login-btn">LOGI SISSE</button>
-                <button type="button" class="register-btn">REGISTREERU</button>
+                <button type="button" class="register-btn" onclick="window.location.href='{{ url('/register') }}'">
+                    REGISTREERU
+                </button>
+
             </div>
 
             <a href="/forgot-password" class="forgot-password">Unustasid parooli?</a>

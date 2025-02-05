@@ -10,7 +10,7 @@
                     <li><a href="/kontakt">Kontakt</a></li>
                     <li><a href="/meist">Meist</a></li>
                     <li><a href="/tule-toole">Tule tööle</a></li>
-                    <li><a href="/logi-sisse">Kliendikaart</a></li>
+                    <li><a href="/log-in">Kliendikaart</a></li>
                 </ul>
             </nav>
             <div class="navbar-right">
