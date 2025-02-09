@@ -9,20 +9,21 @@
 <body>
     <img src="{{ asset('/img/kliendikaart.png') }}" alt="Kliendikaart">
     <div class="login-container">
-        <form class="login-form">
-            <input type="email" id="email" name="email" placeholder="E-post" required>
-            <input type="password" id="password" name="password" placeholder="Parool" required>
-            
-            <div class="button-group">
-                <button type="submit" class="login-btn">LOGI SISSE</button>
-                <button type="button" class="register-btn" onclick="window.location.href='{{ url('/register') }}'">
-                    REGISTREERU
-                </button>
+    <form class="login-form" method="POST" action="{{ route('log-in.post') }}">
+    @csrf
+    <input type="email" id="email" name="email" placeholder="E-post" required>
+    <input type="password" id="password" name="password" placeholder="Parool" required>
+    
+    <div class="button-group">
+        <button type="submit" class="login-btn">LOGI SISSE</button>
+        <button type="button" class="register-btn" onclick="window.location.href='{{ url('/register') }}'">
+            REGISTREERU
+        </button>
+    </div>
 
-            </div>
+    <a href="/forgot-password" class="forgot-password">Unustasid parooli?</a>
+    </form>
 
-            <a href="/forgot-password" class="forgot-password">Unustasid parooli?</a>
-        </form>
         <btn class="Back-btn"><a href="/home">Tagasi</a></btn>
     </div>
 </body>

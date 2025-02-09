@@ -7,7 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('home'); 
 });
 
 
@@ -17,6 +17,11 @@ Route::get('/home', [HomeController::class, 'index'])
 
 Route::get('/log-in', [LoginController::class, 'index'])
     ->name('log-in');
+Route::post('/log-in', [LoginController::class, 'login'])->name('log-in.post');
+
+
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
 
     Route::middleware('guest')->group(function () {
         Route::get('register', [RegisteredUserController::class, 'create'])

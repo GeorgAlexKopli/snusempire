@@ -27,8 +27,7 @@ class AuthenticatedSessionController extends Controller
     $request->authenticate();
     $request->session()->regenerate();
 
-    // Force the redirection to dashboard if login succeeds
-    return redirect()->intended(route('home')); // or any other desired location
+    return redirect()->route('home'); // Redirects to home after login
 }
 
 

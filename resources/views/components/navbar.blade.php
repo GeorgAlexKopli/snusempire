@@ -1,55 +1,67 @@
 <header class="sticky-header">
-        <div class="container">
-            <div class="logo">
-                <img src="{{ asset('img/logo-dark.webp') }}" alt="Snus Empire Logo">
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="/">E-Pood</a></li>
-                    <li><a href="/tooted">Tooted</a></li>
-                    <li><a href="/kontakt">Kontakt</a></li>
-                    <li><a href="/meist">Meist</a></li>
-                    <li><a href="/tule-toole">Tule tööle</a></li>
-                    <li><a href="/log-in">Kliendikaart</a></li>
-                </ul>
-            </nav>
-            <div class="navbar-right">
-            <div class="search-bar">
-                <img class="search-icon" src="{{ asset('img/searchbar.png') }}" alt="Search">
-                    <input type="text" placeholder="Otsi tooteid" class="search-input hidden">  
-            </div>
-            <img class ="shopping-bag-icon" src="{{ asset('img/shopping-bag.svg') }}" alt="Shopping Bag">
-            <div class="shopping-bag">
-                
-            </div>
+    <div class="container">
+        <div class="logo">
+            <img src="{{ asset('img/logo-dark.webp') }}" alt="Snus Empire Logo">
         </div>
-    </header>
+        <nav>
+            <ul>
+                <li><a href="/">E-Pood</a></li>
+                <li><a href="/tooted">Tooted</a></li>
+                <li><a href="/kontakt">Kontakt</a></li>
+                <li><a href="/meist">Meist</a></li>
+                <li><a href="/tule-toole">Tule tööle</a></li>
+                
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <img class="search-icon" src="{{ asset('img/searchbar.png') }}" alt="Search">
+            <input type="text" placeholder="Otsi tooteid" class="search-input hidden">
+        </div>
+        <img class="shopping-bag-icon" src="{{ asset('img/shopping-bag.svg') }}" alt="Shopping Bag">
+        <div class="profile-section">
+            @auth
+                <span class="profile-name">Tere, {{ Auth::user()->name }}</span>
+                <form method="POST" action="{{ route('logout') }}" class="logout-form">
+                    @csrf
+                    <button type="submit" class="logout-btn">Logi välja</button>
+                </form>
+            @else
+                <a href="{{ route('log-in') }}" class="login-link">Kliendikaart</a>
+            @endauth
+        </div>
+    </div>
+    
+</header>
+
+
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function () {
     const searchIcon = document.querySelector('.search-icon');
     const searchInput = document.querySelector('.search-input');
 
-    // Function to toggle the search bar visibility
     function toggleSearchBar() {
-        searchInput.classList.toggle('visible');
-        searchInput.classList.toggle('hidden');
         if (searchInput.classList.contains('visible')) {
+            searchInput.classList.remove('visible');
+            searchInput.classList.add('hidden');
+            searchIcon.style.display = 'block'; // Show search icon when closing
+        } else {
+            searchInput.classList.add('visible');
+            searchInput.classList.remove('hidden');
             searchInput.focus();
+            searchIcon.style.display = 'none'; // Hide search icon when opening
         }
     }
 
-    // Event listener for the search icon click
     searchIcon.addEventListener('click', function (event) {
-        event.stopPropagation(); // Prevent the click from propagating to the document
+        event.stopPropagation();
         toggleSearchBar();
     });
 
-    // Event listener for clicks outside the search bar
     document.addEventListener('click', function (event) {
-        // Check if the search bar is visible and the click is outside the search area
-        if (searchInput.classList.contains('visible') && !searchInput.contains(event.target) && !searchIcon.contains(event.target)) {
+        if (!searchInput.contains(event.target) && !searchIcon.contains(event.target)) {
             searchInput.classList.remove('visible');
             searchInput.classList.add('hidden');
+            searchIcon.style.display = 'block'; // Show search icon when clicking outside
         }
     });
 });
@@ -63,7 +75,7 @@
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 13px 0;
-    }
+}
 
 .sticky-header .container {
     width: 100%;
@@ -72,6 +84,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .logo img {
@@ -99,44 +112,34 @@ nav ul li a:hover {
     color: #0f4b6e;
 }
 
-.navbar-right {
-    display: flex;
-    justify-content: left;
+.search-bar {
+    position: relative;
 }
-
 
 .search-icon {
     width: 30px;
     height: 30px;
     cursor: pointer;
-    padding-right: 10px;
 }
 
-.search-bar {
-    justify-content: center;
-    position: relative;
-}
+
 .search-input {
-    position: absolute;
-    left: 0;
-    width: 1600px;
+    width: 300px;
+    right: 0;
     opacity: 0;
     visibility: hidden;
-    transition: width 0.3s ease, opacity 0.3s ease, visibility 0.3s;
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 16px;
+    z-index: 1000;
 }
 
-/* Visible search input */
+/* When search bar is visible */
 .search-input.visible {
-    
-    width: 1800px;
     opacity: 1;
     visibility: visible;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 10px;
-    margin: 0 ;
-    font-size: 16px;
-    z-index: 10;
+    
 }
 
 /* Hide input by default */
@@ -148,6 +151,50 @@ nav ul li a:hover {
     width: 40px;
     height: auto;
     cursor: pointer;
-    padding-right: 380px;
 }
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.logout-btn {
+    background-color: #0f4b6e;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.logout-btn:hover {
+    background-color:rgb(65, 114, 143);
+}
+
+.login-link {
+    text-decoration: none;
+    color: #0f4b6e;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 0px; /* Reduced gap between elements */
+}
+
     </style>
