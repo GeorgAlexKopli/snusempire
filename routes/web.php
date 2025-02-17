@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\ProductsController;
 
 Route::get('/', function () {
     return redirect()->route('home'); 
@@ -15,9 +16,9 @@ Route::get('/', function () {
 Route::get('/home', [HomeController::class, 'index'])
     ->name('home');
 
-Route::get('/log-in', [LoginController::class, 'index'])
-    ->name('log-in');
-Route::post('/log-in', [LoginController::class, 'login'])->name('log-in.post');
+
+Route::get('/products', [ProductsController::class, 'index'])
+    ->name('products');
 
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
@@ -28,6 +29,11 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name
             ->name('register');
     
         Route::post('register', [RegisteredUserController::class, 'store']);
+
+        Route::get('/log-in', [LoginController::class, 'index'])
+            ->name('log-in');
+
+        Route::post('/log-in', [LoginController::class, 'login'])->name('log-in.post');
     });
     
 

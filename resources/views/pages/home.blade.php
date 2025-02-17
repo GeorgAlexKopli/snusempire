@@ -47,7 +47,7 @@
             </div>
 
         </div>
-        <a href="/tooted" class="btn black-btn">Kõik tooted</a>
+        <a href="{{ route('products') }}" class="btn black-btn">Kõik tooted</a>
     </section>
 
 
