@@ -8,7 +8,7 @@ services:
     restart: unless-stopped
     working_dir: /var/www
     volumes:
-      - .:/var/www
+      - .:/var/www/html
     depends_on:
       - db
       - redis
@@ -38,12 +38,10 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: Passw0rd
       MYSQL_DATABASE: snusempire
-      MYSQL_USER: root
-      MYSQL_PASSWORD: Passw0rd
     volumes:
       - mysql_data:/var/lib/mysql
     ports:
-      - "3306:3306"
+      - "3306:3306"  # Keep the default MySQL port
     networks:
       - laravel
 
