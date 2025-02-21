@@ -73,46 +73,41 @@ The navigation bar contains links to key pages and user authentication features.
 
 ## 6. Usage and Deployment
 
-### 6.1. Running the Code
+### 6.1. Running the Code with Docker
 
-Clone the repository:
+If you prefer to use Docker to set up the project, follow these steps:
+
+#### 1. Clone the repository:
 ```bash
 git clone <repo_url>
 ```
-Navigate to the project directory:
-```bash
+### 2. Navigate to the project directory:
 cd snusempire-clone
-```
-Install dependencies:
-```bash
-composer install
-npm install
-```
-Set up the environment:
-1. Create a `.env` file and copy the contents from `.env.example`
-2. Generate an application key:
-   ```bash
-   php artisan key:generate
-   ```
-3. Configure the database connection in the `.env` file
 
-Run database migrations:
-```bash
-php artisan migrate
-```
-Start the Laravel server:
-```bash
-php artisan serve
-```
-Build and run the frontend:
-```bash
-npm run dev
-```
+### 3. Build and start the Docker containers:
+Run the following command to build and start the containers as defined in the docker-compose.yml file:
+docker-compose up --build
 
-## 7. Future Enhancements
+This will start the following services:
+- Laravel App: The backend application running inside a container
+- MySQL: The MySQL database
+- Redis: The Redis caching service
 
-- Shopping cart and order system  
-- Admin panel for managing products and users  
-- Payment gateway integration  
+#### 4. Set up the environment:
+If you haven't already created the .env file, copy the contents from .env.example:
+cp .env.example .env
+
+#### 5. Generate an application key:
+docker-compose exec app php artisan key:generate
+
+#### 6. Run the database migrations:
+docker-compose exec app php artisan migrate
+
+#### 7. Access the application:
+Once the containers are up and running, you can access the application at:
+http://localhost
+
+To stop the containers:
+docker-compose down
 
 This documentation provides a comprehensive overview of the project structure and functionality.

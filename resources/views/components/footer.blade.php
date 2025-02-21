@@ -1,4 +1,4 @@
-
+<link href="{{ asset('css/components/footer.css') }}" rel="stylesheet">
 
 <footer>
     <div class="footer-content" style="display: flex; justify-content: space-between; max-width: 1800px; margin: 0 auto; padding: 20px; color: white;">
@@ -47,51 +47,3 @@
     </div>
 </footer>
 
-<style>
-footer {
-    background-color:rgb(39, 39, 39);
-    color: white;
-    padding: 50px 0;
-    border-radius: 0.8rem;
-    text-align: center;
-    margin: 0 auto;
-    margin-top: 83px;
-    margin-bottom: 20px;
-    max-width: 1800px;
-    max-height: 250px;
-}
-
-footer p {
-    margin: 0;
-    font-size: 1em;
-}
-
-footer .footer-column img {
-    width: 230px;
-    height: auto;
-}
-
-
-footer .footer-column {
-    margin-right: 50px;
-}
-
-/* Style for footer headlines */
-footer .footer-column h4 {
-    color: rgb(124, 106, 4); 
-    margin-bottom: 15px; 
-}
-
-footer .footer-column p,
-footer .footer-column ul li {
-    margin-bottom: 8px;
-}
-
-footer .footer-content {
-    width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    text-align: left;
-    flex-wrap: wrap;
-}
-</style>

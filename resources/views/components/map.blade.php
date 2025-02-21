@@ -1,3 +1,5 @@
+<link href="{{ asset('css/components/map.css') }}" rel="stylesheet">
+
 <section id="section-map">
     <div id="map"></div>
     <div id="info-tab" class="info-tab">
@@ -140,40 +142,3 @@
   });
 </script>
 
-<style>
-  #map {
-    padding: 100px 0;
-    text-align: center;
-    max-width: 1800px;
-    margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    height: 500px;
-    border-radius: 0.8rem;
-    background-color: #f4f4f4;
-    position: relative; 
-  }
-
-  /* Styling for the info tab */
-  .info-tab {
-    display: none;
-    position: absolute;
-    top: 820px;
-    left: 85px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    width: 250px;
-    height: auto;
-    max-height: 300px;
-    overflow-y: auto;
-    font-size: 14px;
-    margin: 0;
-  }
-  
-  .info-tab h3 {
-    margin-top: 0;
-  }
-</style>
