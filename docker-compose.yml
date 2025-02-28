@@ -29,6 +29,8 @@ services:
       REDIS_HOST: redis
       REDIS_PORT: 6379
       REDIS_PASSWORD: null
+    ports:
+      - "8000:8000"  # Map port 8000 in the container to port 8000 on the host
 
   # MySQL Database Container
   db:

@@ -2,9 +2,11 @@
 
 <header class="sticky-header">
     <div class="container">
-        <div class="logo">
-            <img src="{{ asset('img/logo-dark.webp') }}" alt="Snus Empire Logo">
-        </div>
+    <div class="logo">
+    <a href="/">
+        <img src="{{ asset('img/logo-dark.webp') }}" alt="Snus Empire Logo">
+    </a>
+</div>
         <nav>
             <ul>
                 <li><a href="/">E-Pood</a></li>

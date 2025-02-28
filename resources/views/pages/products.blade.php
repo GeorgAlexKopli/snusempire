@@ -12,8 +12,22 @@
     <x-navbar />
     <img src="{{ asset('/img/productbanner.png') }}" alt="Product Banner">
 
+    <!-- Products Section -->
+    <div class="product-container">
+        @foreach($products as $product)
+            <div class="product-card">
+                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
+                <h2>{{ $product->name }}</h2>
+                @if($product->strength_circles)
+                    <p>Strength: {{ $product->strength_circles }}</p>
+                @endif
+                <p>€{{ number_format($product->price, 2) }}</p>
+            </div>
+        @endforeach
+    </div>
 
-<x-footer/>
-    
+    <!-- Footer -->
+    <x-footer />
+
 </body>
 </html>
