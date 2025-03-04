@@ -10,7 +10,7 @@
         <nav>
             <ul>
                 <li><a href="/">E-Pood</a></li>
-                <li><a href="/tooted">Tooted</a></li>
+                <li><a href="{{ route('products') }}">Tooted</a></li>
                 <li><a href="/kontakt">Kontakt</a></li>
                 <li><a href="/meist">Meist</a></li>
                 <li><a href="/tule-toole">Tule tööle</a></li>
@@ -18,10 +18,14 @@
             </ul>
         </nav>
         <div class="search-bar">
-            <img class="search-icon" src="{{ asset('img/searchbar.png') }}" alt="Search">
-            <input type="text" placeholder="Otsi tooteid" class="search-input hidden">
-        </div>
-        <img class="shopping-bag-icon" src="{{ asset('img/shopping-bag.svg') }}" alt="Shopping Bag">
+    <form action="{{ route('search') }}" method="GET">
+        <img class="search-icon" src="{{ asset('img/searchbar.png') }}" alt="Search">
+        <input type="text" name="query" placeholder="Otsi tooteid" class="search-input hidden">
+    </form>
+</div>
+
+
+        
         <div class="profile-section">
             @auth
                 <span class="profile-name">Tere, {{ Auth::user()->name }}</span>
