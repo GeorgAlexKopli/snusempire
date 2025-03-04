@@ -1,0 +1,37 @@
+/* Product Details Page */
+.product-details-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.product-image img {
+    width: 300px;
+    height: auto;
+}
+
+.product-info {
+    max-width: 500px;
+}
+
+.product-info h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.product-info p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.btn.add-to-cart {
+    background-color: #e67e22;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn.add-to-cart:hover {
+    background-color: #d35400;
+}

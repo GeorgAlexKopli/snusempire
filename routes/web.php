@@ -22,6 +22,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/products', [ProductsController::class, 'index'])->name('products');
 
+Route::get('/products/{id}', [ProductsController::class, 'show'])->name('products.show');
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('products', ProductController::class);  // Resource route for admin panel

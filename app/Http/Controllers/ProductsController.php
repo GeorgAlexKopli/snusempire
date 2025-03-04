@@ -15,12 +15,21 @@ class ProductsController extends Controller
 
     public function search(Request $request)
     {
-    $query = $request->input('query');
+        $query = $request->input('query');
 
-    // Search for products by name
-    $products = Product::where('name', 'like', '%' . $query . '%')->get();
+        // Search for products by name
+        $products = Product::where('name', 'like', '%' . $query . '%')->get();
 
-    // Return the search results view with the products
-    return view('pages.search-results', compact('products'));
+        // Return the search results view with the products
+        return view('pages.search-results', compact('products'));
+    }
+
+    public function show($id)
+    {
+        // Fetch the product by its ID
+        $product = Product::findOrFail($id);
+
+        // Return the product details view with the product data
+        return view('pages.product-details', compact('product'));
     }
 }
