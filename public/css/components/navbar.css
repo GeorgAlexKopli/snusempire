@@ -127,3 +127,24 @@ nav ul li a:hover {
     align-items: center;
     gap: 0px; /* Reduced gap between elements */
 }
+
+/*.cart-link {
+    position: relative;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.cart-count {
+    background: red;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+}
+*/
