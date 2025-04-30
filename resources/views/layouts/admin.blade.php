@@ -46,8 +46,8 @@
     <div class="sidebar">
         <h4>Admin Panel</h4>
         <a href="{{ route('admin.products.index') }}">Manage Products</a>
-        <a href="#">Orders</a>
-        <a href="#">Users</a>
+        <a href="{{ route('admin.orders.index') }}">Manage Orders</a>
+        <a href="{{ route('admin.users.index') }}">Manage Users</a>
         <a href="{{ route('home') }}">Back to Site</a>
         <hr>
         <form action="{{ route('logout') }}" method="POST">

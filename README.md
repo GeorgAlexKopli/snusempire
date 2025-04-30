@@ -2,7 +2,9 @@
 
 ## 1. Overview
 
-This project is a clone of the SnusEmpire website, featuring key functionalities such as an online store, product listings, a contact page, an information page about the company, and a job listings page. Additionally, it includes a user authentication system built with Laravel, allowing users to register, log in, and log out.
+This project is a clone of the SnusEmpire website, featuring an online store, product listings, a contact page, an about page, and a job listings page. It includes a user authentication system built with Laravel, allowing users to register, log in, and log out. 
+
+The primary goal of this project is to replicate the core functionality of SnusEmpire, providing a fully functional e-commerce platform with user authentication and seamless navigation.
 
 ## 2. Technologies
 
@@ -15,99 +17,144 @@ This project is a clone of the SnusEmpire website, featuring key functionalities
 
 ### 3.1. Core Components
 
-- **Home Page** – Displays featured products and essential information  
-- **Online Store** – Product listing with filters  
-- **Products** – Detailed product views  
-- **Contact** – Contact form and company information  
-- **About Us** – Company introduction  
-- **Careers** – Job openings  
-- **User Authentication** – Registration, login, and logout  
+- **Home Page** – Displays featured products and essential information
+- **Online Store** – A product listing page with filters for easy product searching
+- **Product Details** – Detailed views for individual products
+- **Contact** – Contact form and company information
+- **About Us** – Information about the company and its mission
+- **Careers** – Job openings and opportunities within the company
+- **User Authentication** – User registration, login, and logout functionality
 
 ### 3.2. Navbar and User Authentication
 
-The navigation bar contains links to key pages and user authentication features. When a user is logged in, their name and a logout button are displayed.
+The navigation bar contains links to all key pages and user authentication features. When a user is logged in, their name and a logout button are displayed on the right side of the navbar.
 
 ## 4. Functionality
 
 ### 4.1. User Authentication
 
-- Users can register and log in  
-- Upon logging in, the user’s name is displayed on the right side of the navbar  
-- Users can log out using a Laravel Blade form  
+- **User Registration** – New users can register an account
+- **User Login** – Existing users can log into their accounts
+- **Logout** – Logged-in users can log out, with their name and logout button visible in the navbar
+- **Session Management** – User session is managed with Laravel Auth, allowing for secure authentication
 
 ### 4.2. Search and Shopping Cart
 
-- A search bar allows users to quickly find products  
-- The shopping cart icon is displayed on the right side of the navbar  
+- **Product Search** – A search bar allows users to easily find products by name or description
+- **Shopping Cart** – The shopping cart icon is displayed on the right side of the navbar, allowing users to view and manage their cart items
 
 ### 4.3. Styling and Design
 
-- The navbar is **sticky** and remains at the top when scrolling  
-- The profile name and logout button are positioned on the right side of the navbar  
-- Interactive elements, such as opening and closing the search bar  
+- **Sticky Navbar** – The navbar remains at the top of the page while scrolling
+- **Profile Section** – The user’s profile name and logout button are aligned to the right side of the navbar
+- **Interactive Elements** – Features such as the search bar opening/closing are designed to be intuitive and responsive
 
-## 5. Database
+## 5. Database Structure
 
 ### 5.1. Users Table
 
 | Column      | Type        | Description             |
-|------------|------------|-------------------------|
-| id         | int (PK)   | Unique identifier       |
-| name       | varchar    | User’s name             |
-| email      | varchar    | User’s email address    |
-| password   | varchar    | Hashed password         |
-| created_at | timestamp  | Time of creation        |
-| updated_at | timestamp  | Time of last update     |
+|-------------|-------------|-------------------------|
+| id          | int (PK)    | Unique identifier       |
+| name        | varchar     | User’s name             |
+| email       | varchar     | User’s email address    |
+| password    | varchar     | Hashed password         |
+| created_at  | timestamp   | Time of account creation|
+| updated_at  | timestamp   | Time of last update     |
 
 ### 5.2. Products Table
 
 | Column      | Type        | Description             |
-|------------|------------|-------------------------|
-| id         | int (PK)   | Unique identifier       |
-| name       | varchar    | Product name            |
-| description| text       | Product description     |
-| price      | decimal    | Product price           |
-| image      | varchar    | Product image URL       |
-| created_at | timestamp  | Time of creation        |
-| updated_at | timestamp  | Time of last update     |
+|-------------|-------------|-------------------------|
+| id          | int (PK)    | Unique identifier       |
+| name        | varchar     | Product name            |
+| description | text        | Product description     |
+| price       | decimal     | Product price           |
+| image       | varchar     | Product image URL       |
+| created_at  | timestamp   | Time of product creation|
+| updated_at  | timestamp   | Time of last update     |
 
 ## 6. Usage and Deployment
 
-### 6.1. Running the Code with Docker
+### 6.1. Setup and Running the Application Locally
 
-If you prefer to use Docker to set up the project, follow these steps:
+To run the application locally, follow these steps:
 
-#### 1. Clone the repository:
+#### 1. Clone the Repository
+
+Clone the project repository to your local machine:
+
 ```bash
 git clone <repo_url>
 ```
-### 2. Navigate to the project directory:
+
+#### 2. Install Backend Dependencies
+
+Navigate to the project directory and install the required PHP dependencies using Composer:
+
+```bash
 cd snusempire-clone
+composer install
+```
 
-### 3. Build and start the Docker containers:
-Run the following command to build and start the containers as defined in the docker-compose.yml file:
-docker-compose up --build
+#### 3. Install Frontend Dependencies
 
-This will start the following services:
-- Laravel App: The backend application running inside a container
-- MySQL: The MySQL database
-- Redis: The Redis caching service
+Next, install the required JavaScript dependencies using npm:
 
-#### 4. Set up the environment:
-If you haven't already created the .env file, copy the contents from .env.example:
+```bash
+npm install
+```
+
+#### 4. Configure Environment
+
+Copy the example environment file to create a `.env` file:
+
+```bash
 cp .env.example .env
+```
 
-#### 5. Generate an application key:
-docker-compose exec app php artisan key:generate
+Update the `.env` file with your local environment settings, such as the database connection details.
 
-#### 6. Run the database migrations:
-docker-compose exec app php artisan migrate
+#### 5. Generate the Application Key
 
-#### 7. Access the application:
-Once the containers are up and running, you can access the application at:
-http://localhost
+Run the following command to generate a unique application key:
 
-To stop the containers:
-docker-compose down
+```bash
+php artisan key:generate
+```
 
-This documentation provides a comprehensive overview of the project structure and functionality.
+#### 6. Run Database Migrations
+
+To create the necessary database tables, run the migrations:
+
+```bash
+php artisan migrate
+```
+
+#### 7. Compile Frontend Assets
+
+Before running the application, compile the frontend assets by running:
+
+```bash
+npm run dev
+```
+
+This command will start a development server and compile the CSS and JavaScript files.
+
+#### 8. Access the Application
+
+Once everything is set up and compiled, you can run the Laravel development server:
+
+```bash
+php artisan serve
+```
+
+This will start the server at `http://localhost:8000`. Open this URL in your browser to access the application.
+
+#### 9. Stop the Server
+
+To stop the server, press `CTRL+C` in the terminal.
+
+---
+
+This documentation provides a detailed overview of the project structure, functionalities, and instructions for setting up and running the application locally. 

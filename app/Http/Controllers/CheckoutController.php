@@ -43,10 +43,10 @@ class CheckoutController extends Controller
         return redirect()->route('products')->with('success', 'Order placed successfully!');
     }
     public function index()
-{
-    $cart = Session::get('cart', []);
-    return view('pages.checkout');
-}
+    {
+        $cart = Session::get('cart', []);
+        return view('pages.checkout', compact('cart'));
+    }
 
 }
 

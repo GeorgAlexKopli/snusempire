@@ -4,16 +4,19 @@ use App\Models\Product;
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductsController;
-use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\AuthenticatedSessionController; 
 use App\Http\Controllers\CartController; 
 use App\Http\Controllers\CheckoutController;
 
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\ProductController;
 
 Route::get('/', function () {
     return redirect()->route('home'); 
@@ -38,7 +41,9 @@ Route::post('/checkout/process', [CheckoutController::class, 'process'])->name('
 
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
-    Route::resource('products', ProductController::class);  // Resource route for admin panel
+    Route::resource('products', ProductController::class);  
+    Route::resource('users', UserController::class);
+    Route::resource('orders', OrderController::class)->except(['create', 'store']);
 });
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
