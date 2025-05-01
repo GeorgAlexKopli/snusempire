@@ -7,29 +7,32 @@ use App\Models\Product;
 
 class ProductsController extends Controller
 {
-    public function index()
-    {
-        $products = Product::all(); // Fetch all products from the database
-        return view('pages.products', compact('products')); // Pass products to the view
+    public function index(Request $request)
+{
+    $products = Product::all();
+    $popularProducts = Product::where('popular', true)->get();
+
+    if ($request->has('popular')) {
+        // If the 'popular' query param is present, only show popular products
+        $products = $popularProducts;
     }
+
+    return view('pages.products', compact('products', 'popularProducts'));
+}
+
 
     public function search(Request $request)
     {
         $query = $request->input('query');
-
-        // Search for products by name
         $products = Product::where('name', 'like', '%' . $query . '%')->get();
 
-        // Return the search results view with the products
         return view('pages.search-results', compact('products'));
     }
 
     public function show($id)
     {
-        // Fetch the product by its ID
         $product = Product::findOrFail($id);
 
-        // Return the product details view with the product data
         return view('pages.product-details', compact('product'));
     }
 }

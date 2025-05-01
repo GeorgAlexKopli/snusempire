@@ -44,6 +44,12 @@
             <input type="text" id="url" name="url" class="form-control" value="{{ old('url') }}">
         </div>
 
+        <div class="form-group">
+            <label for="popular">Popular</label>
+            <input type="checkbox" name="popular" id="popular" {{ old('popular', $product->popular ?? false) ? 'checked' : '' }}>
+        </div>
+
+
         <button type="submit" class="btn btn-primary">Add Product</button>
     </form>
     

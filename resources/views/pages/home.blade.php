@@ -14,24 +14,31 @@
 
     <section class="populaarsed-tooted">
     <h2>Populaarsed tooted</h2>
-        <div class="container">
-            
+    <div class="container">
+        
         <div class="tooted-item">
-        <img src="{{ asset('/img/killa-blueberry-10g-643e76150180b.webp') }}" alt="Toode 1">
-        <div class="product-info">
-            <div class="strength-circles">
-                <span class="circle filled"></span>
-                <span class="circle filled"></span>
-                <span class="circle"></span>
-                <span class="circle"></span>
-                <span class="circle"></span>
+        <a href="{{ route('products', ['popular' => 1]) }}">
+
+                <img src="{{ asset('/img/killa-blueberry-10g-643e76150180b.webp') }}" alt="Toode 1">
+            </a>
+            <div class="product-info">
+                <div class="strength-circles">
+                    <span class="circle filled"></span>
+                    <span class="circle filled"></span>
+                    <span class="circle"></span>
+                    <span class="circle"></span>
+                    <span class="circle"></span>
+                </div>
+                <p>Killa Blueberry 10g  €4.99</p>
             </div>
-            <p>Killa Blueberry 10g  €4.99</p>
         </div>
-    </div>
-            <div class="tooted-item">
+
+        <div class="tooted-item">
+        <a href="{{ route('products', ['popular' => 1]) }}">
+
                 <img src="{{ asset('/img/pablo-ice-cold-10g-643e7c7cb9b6c.webp') }}" alt="Toode 2">
-                <div class=product-info>
+            </a>
+            <div class="product-info">
                 <div class="strength-circles">
                     <span class="circle filled"></span>
                     <span class="circle filled"></span>
@@ -39,14 +46,15 @@
                     <span class="circle filled"></span>
                     <span class="circle filled"></span>
                 </div>
-                <p>Pablo Ice Cold 10g €5.49  </p>
-                
-                </div>
+                <p>Pablo Ice Cold 10g €5.49</p>
             </div>
-
         </div>
-        <a href="{{ route('products') }}" class="btn black-btn">Kõik tooted</a>
-    </section>
+
+    </div>
+
+    <a href="{{ route('products') }}" class="btn black-btn">Kõik tooted</a>
+</section>
+
 
     <x-map />
 
