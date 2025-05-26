@@ -51,19 +51,20 @@ The navigation bar contains links to all key pages and user authentication featu
 
 ## 5. Database Structure
 
-### 5.1. Users Table
-
+Users Table:
+------------
 | Column      | Type        | Description             |
 |-------------|-------------|-------------------------|
 | id          | int (PK)    | Unique identifier       |
 | name        | varchar     | User’s name             |
 | email       | varchar     | User’s email address    |
 | password    | varchar     | Hashed password         |
-| created_at  | timestamp   | Time of account creation|
+| is_admin    | boolean     | Admin role flag         |
+| created_at  | timestamp   | Time of creation        |
 | updated_at  | timestamp   | Time of last update     |
 
-### 5.2. Products Table
-
+Products Table:
+---------------
 | Column      | Type        | Description             |
 |-------------|-------------|-------------------------|
 | id          | int (PK)    | Unique identifier       |
@@ -71,7 +72,33 @@ The navigation bar contains links to all key pages and user authentication featu
 | description | text        | Product description     |
 | price       | decimal     | Product price           |
 | image       | varchar     | Product image URL       |
-| created_at  | timestamp   | Time of product creation|
+| created_at  | timestamp   | Time of creation        |
+| updated_at  | timestamp   | Time of last update     |
+
+Orders Table:
+-------------
+| Column      | Type        | Description             |
+|-------------|-------------|-------------------------|
+| id          | int (PK)    | Unique identifier       |
+| user_id     | int (FK)    | Linked user (nullable)  |
+| name        | varchar     | Customer name           |
+| email       | varchar     | Customer email          |
+| address     | text        | Shipping address        |
+| total_price | decimal     | Total order cost        |
+| status      | enum        | Order status            |
+| created_at  | timestamp   | Time of creation        |
+| updated_at  | timestamp   | Time of last update     |
+
+Order Items Table:
+------------------
+| Column      | Type        | Description             |
+|-------------|-------------|-------------------------|
+| id          | int (PK)    | Unique identifier       |
+| order_id    | int (FK)    | Linked order            |
+| product_id  | int (FK)    | Linked product          |
+| quantity    | int         | Quantity ordered        |
+| price       | decimal     | Product price at order  |
+| created_at  | timestamp   | Time of creation        |
 | updated_at  | timestamp   | Time of last update     |
 
 ## 6. Usage and Deployment
